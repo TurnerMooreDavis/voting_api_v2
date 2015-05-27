@@ -8,7 +8,8 @@ class VotersControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show, {id:1}
+    voter = Voter.create(name:"bobsky")
+    get :show, {id:voter[:id],key:voter[:key]}
     assert_response :success
   end
 

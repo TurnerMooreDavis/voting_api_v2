@@ -5,12 +5,20 @@ class VotersController < ApplicationController
   end
 
   def show
-    render json: Voter.find_by_id(params[:id])
+    voter = Voter.find_by_id(params[:id])
+    if voter.authenticate(params)
+      render json: voter
+    else
+      render json: "Your Security Key was incorrect.  Please try again"
+    end
   end
 
   def update
     voter = Voter.find_by_id(params[:id])
-    voter.update(name: params[:name]) if params[:name]
-    voter.update(party:params[:party]) if params[:party]
+    if voter.authenticate(params)
+      voter.multiple_update(params)
+    else
+      render json: "Your Security Key was incorrect.  Please try again"
+    end
   end
 end

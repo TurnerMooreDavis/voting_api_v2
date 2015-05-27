@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   post 'votes/create'
 
+  delete 'votes/destroy'
+
   get 'candidates/index'
 
   get 'candidates/show'
