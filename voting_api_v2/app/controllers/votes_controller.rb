@@ -4,6 +4,7 @@ class VotesController < ApplicationController
   end
 
   def create
-    Vote.create(candidate_id:params[:candidate_id],voter_id:params[:voter_id])
+    vote = Vote.create(candidate_id:params[:candidate_id],voter_id:params[:voter_id])
+    render json: vote
   end
 end
