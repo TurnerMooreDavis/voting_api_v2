@@ -3,6 +3,7 @@ class CreateVoters < ActiveRecord::Migration
     create_table :voters do |t|
       t.string :name
       t.string :party
+      t.string :key
 
       t.timestamps null: false
     end

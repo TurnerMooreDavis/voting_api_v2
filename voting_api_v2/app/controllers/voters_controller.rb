@@ -1,7 +1,7 @@
 class VotersController < ApplicationController
   def create
-    voter = Voter.create(name:params[:name],party:params[:party])
-    render json: voter
+    voter = Voter.create(name:params[:name],party:params[:party],key: SecureRandom.hex)
+    render json: "Your Security Key is:\n\n#{voter[:key]}\n\nDont loose it!"
   end
 
   def show

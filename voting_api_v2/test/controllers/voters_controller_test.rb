@@ -16,6 +16,10 @@ class VotersControllerTest < ActionController::TestCase
     voter = Voter.create(name:"bobsky")
     patch :update, {id:voter.id, name:"turner"}
     assert_response :success
+    voter.reload
+    assert_equal "turner", voter[:name]
   end
+
+
 
 end
