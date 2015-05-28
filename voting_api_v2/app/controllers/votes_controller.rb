@@ -13,13 +13,13 @@ class VotesController < ApplicationController
       render json: "Your Security Key was incorrect.  Please try again"
     end
   end
-  def destroy
-    if Vote.authenticate(params)
-      vote = Vote.find_by_id(params[:id])
-      vote.delete
-    else
-      render json: "Your Security Key was incorrect.  Please try again"
-    end
-  end
+  # def destroy
+  #   if Vote.authenticate(params)
+  #     vote = Vote.find_by_id(params[:id])
+  #     vote.destroy
+  #   else
+  #     render json: "Your Security Key was incorrect.  Please try again"
+  #   end
+  # end
 
 end
